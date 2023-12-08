@@ -46,3 +46,12 @@ Route.post('/favorito', async ({request})=> {
   favoritos.push(newFavorito)
   return response.status(201).send(newFavorito)
 })
+
+Route.put('/favoritos/:id', async ({params, request, response}) => {
+  const {nome,url,importante}=request.body()
+  let favoritoEncontrado=favoritos.find((favoritos)=>favoritos.id==params.id)
+  if favoritoEncontrado==undefined
+  return response.status(404)
+  
+  return favoritoEncontrado
+})
