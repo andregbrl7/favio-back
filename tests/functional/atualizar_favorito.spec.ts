@@ -2,8 +2,8 @@ import { test } from '@japa/runner'
 
 test.group('Atualizar favorito', () => {
   test('atualizar favorito', async ({client}) => {
-    const respota = await client.put('/favoritos/6').json({nome: 'SGA', url: 'sga.com.br', importante: true})
-    respota.assertStatus(201)
+    const resposta = await client.put('/favoritos/1').json({nome: 'SGA', url: 'sga.com.br', importante: true})
+    resposta.assertStatus(201)
   })
 
   test('atualizando favorito inexistente', async ({client}) => {
@@ -17,7 +17,7 @@ test.group('Atualizar favorito', () => {
     resposta.assertBodyContains({id: 3, nome: 'SGA', url: 'http://www.uol.com.br', importante: true })
   })
 
-  test('atualizando favorito com nome de outro favorito', async ({client}) => {
+  test('atualizando favorito com os mesmos nomes de outro favorito', async ({client}) => {
     const resposta = await client.put('favoritos/4').json({nome: 'UFRN', url: 'http://www.ufrn.com.br', importante: true})
     resposta.assertStatus(404)
   })
