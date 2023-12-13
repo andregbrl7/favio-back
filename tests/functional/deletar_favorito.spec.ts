@@ -2,12 +2,12 @@ import { test } from '@japa/runner'
 
 test.group('Excluir favorito', () => {
   test('deletar pelo nome', async ({ client }) => {
-    const respota = await client.delete('/favoritos').json({ nome: 'IFRN' })
-    respota.assertStatus(204)
+    const resposta = await client.delete('/favoritos').json({ nome: 'IFRN' })
+    resposta.assertStatus(204)
   })
 
   test('deletar favorito que não existe', async ({ client }) => {
-    const respota = await client.delete('/favoritos').json({ nome: 'TWITTER' })
-    respota.assertStatus(404)
+    const resposta = await client.delete('/favoritos').json({ nome: 'TWITTER' })
+    resposta.assertStatus(404)
   })
 })
