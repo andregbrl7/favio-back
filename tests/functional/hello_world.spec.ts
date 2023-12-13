@@ -4,7 +4,7 @@ test('display welcome page', async ({ client }) => {
   const response = await client.get('/')
 
   response.assertStatus(200)
-  response.assertBodyContains({ app: 'favio-back' })
+  response.assertBodyContains({ hello: 'world' })
 })
 
 //test ('nome do app', async ({client})=> {
