@@ -9,9 +9,11 @@ let favoritos = [
 
 ]
 
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+Route.group(() => {
+  // Rota padrão
+  Route.get('/', async ({ view }) => {
+    return view.render('home')
+  })
 
 //pegar todos os favoritos
 Route.get('/favoritos', async () => {
@@ -87,3 +89,7 @@ Route.put('/favoritos/:id', async ({ params, request, response }) => {
 })
 
 Route.resource('favoritao', 'FavoritosController').apiOnly()
+
+Route.resource('user', 'UsersController').apiOnly()
+
+})
