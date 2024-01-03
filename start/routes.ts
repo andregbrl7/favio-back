@@ -11,8 +11,8 @@ let favoritos = [
 
 Route.group(() => {
   // Rota padrão
-  Route.get('/', async ({ view }) => {
-    return view.render('home')
+  Route.get('/', async () => {
+    return null
   })
 
 //pegar todos os favoritos
